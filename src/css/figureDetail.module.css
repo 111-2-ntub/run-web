@@ -1,23 +1,14 @@
-.people img {
-    width: 100%;
+img {
+    margin: 0 auto;
 }
 
 .dashboard {
     margin-top: 20px;
-    background: #4f4f4f;
 }
 
 .dashboardcard {
-    padding: 10px;
-}
-
-.white {
-    color: #fff
-}
-
-.line {
-    border-bottom: white 2.5px solid;
-    padding: 5px 0;
+    border-radius: .28571429rem;
+    background: #2E2E2E !important;
 }
 
 :global( .apexcharts-tooltip) {
@@ -30,10 +21,7 @@ div.space {
 
 .bigSize {
     font-size: 25px;
-}
-
-.self>div {
-    border-right: 2.5px white solid;
+    margin-bottom: 25px;
 }
 
 .grayFont {
@@ -48,15 +36,39 @@ div.space {
     margin: 0 auto;
 }
 
-.figurePh {
+.imgBox {
+    margin: 0 auto;
+    position: relative;
+    width: 10rem;
+    height: 10rem;
+    overflow: hidden;
     border-radius: 50%;
-    border: solid #fff 1px;
+    box-shadow: 0px 0px 5px 0px #cccccc;
+}
+
+.scoreCircle {
+    height: 100%;
+    color: #fff;
+    padding: 15%;
+    /* margin: 20px; */
+}
+
+.term {
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+    margin-left: 15px;
+}
+
+.class{
+    margin-top: 3px!important;
+}
+
+.policyBorder {
+    border-left: 3px solid red;
+    padding-left: 5px
 }
 
 @media screen and (max-width :768px) {
-    .self>div {
-        border: none;
-    }
     .in {
         display: inline;
     }

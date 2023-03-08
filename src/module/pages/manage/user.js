@@ -4,6 +4,7 @@ import style from "../../../css/manage.module.css"
 import { ManageR } from "../../request/manageR"
 
 import { Tab as TabUI, Button as BtnUI } from 'semantic-ui-react'
+import { trackPromise } from 'react-promise-tracker';
 export default class Check extends React.Component {
     constructor(props) {
         super(props)
@@ -12,15 +13,19 @@ export default class Check extends React.Component {
         }
     }
     componentDidMount() {
-        ManageR.user().then(response => {
-            let item = {}
-            for (let i of response.data.data) {
-                item[i.name] = i.data
-            }
-            console.log(item)
-            this.setState(item)
-        })
+        trackPromise(
+            ManageR.user().then(response => {
+                this.setState(response.data.D)
+            })
+        )
     }
+
+    setIdentity = (u_id, i_id) => {
+        trackPromise(
+            ManageR.identity({ "user_id": u_id, "identity": i_id }).then()
+        )
+    }
+
     render() {
         const panes = [
             {
@@ -31,20 +36,20 @@ export default class Check extends React.Component {
                             <Grid.Column width={ 4 }><h3>姓名</h3></Grid.Column>
                             <Grid.Column width={ 8 }><h3>操作</h3></Grid.Column>
                         </Grid.Row>
-                      
-                            { this.state.user && this.state.user.map((item, index) => {
-                                return (<>
-                                  <Grid.Row> 
+
+                        { this.state.user && this.state.user.map((item, index) => {
+                            return (<>
+                                <Grid.Row>
                                     <Grid.Column width={ 4 } >{ item.id }</Grid.Column>
                                     <Grid.Column width={ 4 }>{ item.name }</Grid.Column>
                                     <Grid.Column width={ 8 }>
-                                        <BtnUI>轉管理者</BtnUI>
+                                        <BtnUI onClick={ () => this.setIdentity(item.id, 2) }>轉管理者</BtnUI>
                                         <BtnUI>轉政治人物</BtnUI>
                                     </Grid.Column> </Grid.Row>
 
-                                </>)
-                            }) }
-                       </Grid>
+                            </>)
+                        }) }
+                    </Grid>
                 </TabUI.Pane>
             },
             {
@@ -54,18 +59,18 @@ export default class Check extends React.Component {
                             <Grid.Column width={ 4 }><h3>帳號</h3></Grid.Column>
                             <Grid.Column width={ 4 }><h3>姓名</h3></Grid.Column>
                             <Grid.Column width={ 8 }><h3>操作</h3></Grid.Column>
-                            </Grid.Row >
-                            { this.state.politician && this.state.politician.map((item, index) => {
-                                return (<> <Grid.Row> 
-                                    <Grid.Column width={ 4 } >{ item.id }</Grid.Column>
-                                    <Grid.Column width={ 4 }>{ item.name }</Grid.Column>
-                                    <Grid.Column width={ 8 }>
+                        </Grid.Row >
+                        { this.state.politician && this.state.politician.map((item, index) => {
+                            return (<> <Grid.Row>
+                                <Grid.Column width={ 4 } >{ item.id }</Grid.Column>
+                                <Grid.Column width={ 4 }>{ item.name }</Grid.Column>
+                                <Grid.Column width={ 8 }>
 
-                                        <BtnUI>轉一般使用者</BtnUI>
-                                    </Grid.Column>   </Grid.Row >
-                                </>)
-                            }) }
-                     </Grid>
+                                    <BtnUI onClick={ () => this.setIdentity(item.id, 1) }>轉一般使用者</BtnUI>
+                                </Grid.Column>   </Grid.Row >
+                            </>)
+                        }) }
+                    </Grid>
                 </TabUI.Pane >
             },
             {
@@ -75,19 +80,19 @@ export default class Check extends React.Component {
                             <Grid.Column width={ 4 }><h3>帳號</h3></Grid.Column>
                             <Grid.Column width={ 4 }><h3>姓名</h3></Grid.Column>
                             <Grid.Column width={ 8 }><h3>操作</h3></Grid.Column>
-                            </Grid.Row >
-                            { this.state.manager && this.state.manager.map((item, index) => {
-                                return (<>
-                                  <Grid.Row>
+                        </Grid.Row >
+                        { this.state.manager && this.state.manager.map((item, index) => {
+                            return (<>
+                                <Grid.Row>
                                     <Grid.Column width={ 4 } >{ item.id }</Grid.Column>
                                     <Grid.Column width={ 4 }>{ item.name }</Grid.Column>
                                     <Grid.Column width={ 8 }>
 
-                                        <BtnUI>轉一般使用者</BtnUI>
+                                        <BtnUI onClick={ () => this.setIdentity(item.id, 1) }>轉一般使用者</BtnUI>
                                     </Grid.Column>   </Grid.Row >
-                                </>)
-                            }) }
-                        </Grid>
+                            </>)
+                        }) }
+                    </Grid>
                 </TabUI.Pane >
             },
 

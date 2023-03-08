@@ -11,7 +11,7 @@ import 'swiper/components/pagination/pagination.scss';
 import 'swiper/components/scrollbar/scrollbar.scss';
 //semantic-ui
 import 'semantic-ui-css/semantic.min.css'
-
+import "tailwindcss/tailwind.css"
 import "./css/main.css"
 
 

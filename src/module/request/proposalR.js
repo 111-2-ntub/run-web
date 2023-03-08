@@ -2,9 +2,10 @@ import { FetchUtil } from "../util/fetchUtil";
 
 export  class ProposalR {
     static root = "proposal"
-    static list() {
-        return FetchUtil.getAPI(`${this.root}/`)
+    static list(data) {
+        return FetchUtil.getAPI(`${this.root}`,data)
     }
+    
     static msg(data) {
         return FetchUtil.postAPI(`${this.root}/msg`, data)
     }
@@ -17,6 +18,10 @@ export  class ProposalR {
 
     static save(data) {
         return FetchUtil.postAPI(`${this.root}/save`, data)
+    }
+
+    static removeSave(data) {
+        return FetchUtil.postAPI(`${this.root}/save/del`, data)
     }
     
     

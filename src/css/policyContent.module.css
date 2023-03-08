@@ -3,6 +3,7 @@
     font-weight: bold;
     font-size: x-large;
     padding: 25px 0;
+    line-height: 2rem;
 }
 
 .lable {
@@ -19,15 +20,15 @@ list-group {
 }
 
 .red {
-    color: #ff0000
+    color: #de4b43; 
 }
 
 .yellow {
-    color: #ffee02fb
+    color: #98c4d1;  
 }
 
 .green {
-    color: #99ff4d
+    color: #fec240;
 }
 
 .size {
@@ -38,11 +39,10 @@ list-group {
 
 .redHeart {
     color: red;
-    cursor: pointer;
 }
 
 .heart {
-    cursor: pointer;
+    color: black;
 }
 
 :global(.react-pdf__Page__canvas) {

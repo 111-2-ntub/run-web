@@ -48,10 +48,10 @@ class SelectSubject extends React.Component {
 }
 
 
-export default SelectSubject = {
-    routeProps: {
-        path: "/selectSubject",
-        component: SelectSubject
-    },
-    name: "選擇議題"
-}
+// export default SelectSubject = {
+//     routeProps: {
+//         path: "/selectSubject",
+//         component: SelectSubject
+//     },
+//     name: "選擇議題"
+// }

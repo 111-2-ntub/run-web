@@ -6,6 +6,7 @@ const GET = "GET";
 const POST = "POST";
 const DELETE = "DELETE";
 const PATCH = "PATCH";
+const PUT="PUT"
 const APPLICATION_JSON = "application/json"
 
 export class FetchUtil {
@@ -14,7 +15,6 @@ export class FetchUtil {
             url += `?${this.objectToRequestParams(data)}`;
             console.log(url)
         }
-        // console.log(requestOptions)
         return await fetch(`${BASE_URL}${url}`, requestOptions)
             .then(this.responseToJSON)
             .then(this.handleResponse);
@@ -126,6 +126,18 @@ export class FetchUtil {
                 "Authorization": localStorage.getItem("token")
             },
         };
+        return await this.getPromise(url, requestOptions);
+    }
+
+    static async putAPI(url,data) {
+        const requestOptions = {
+            method: PUT,
+            headers: {
+                "Content-Type": APPLICATION_JSON,
+                // "Authorization": localStorage.getItem("token")
+            },
+            body: JSON.stringify(this.clearObject(data))
+        };        
         return await this.getPromise(url, requestOptions);
     }
 

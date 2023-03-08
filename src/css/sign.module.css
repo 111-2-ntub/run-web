@@ -1,6 +1,10 @@
-.sign {
+/* .sign {
     text-align: center;
     height: 100vh;
+} */
+input {
+    width: 100% !important;
+    max-width: 300px;
 }
 
 .left>img {
@@ -18,20 +22,38 @@
 
 .sign input,
 .sign select {
-    width: 20vw;
     border-radius: 5px;
     border: 2px solid #4F586B;
     height: 3vw;
+    margin: 15px 0;
 }
 
 .continue {
     background-color: #4F586B;
+    width: 90% !important;
+}
+
+.formSBg {
+    text-align: center;
+    margin: 10vmin 5vmin;
+    box-shadow: 0 2px 4px rgb(0 0 0 / 10%), 0 8px 16px rgb(0 0 0 / 10%);
+    border-radius: 10px !important;
 }
 
 .left {
     background-color: #4F586B;
     color: #FFF;
     text-align: center;
+}
+
+.select{    
+    width:100% !important;
+}
+
+.birth {
+    color: gray !important;
+    width:80% !important;
+    margin-right:10px !important;
 }
 
 h4 {
@@ -43,18 +65,15 @@ h4 {
 }
 
 .agree {
-    margin: 5vh 0;
-}
-
-.sign button,
-.sign input {
-    width: 20vw;
+    margin: 2vh 0;
 }
 
 .homeKey {
-    width: 5vw;
-    margin: 0px;
-    float: right;
+    margin: auto;
+    width: 10vw;
+    min-width: 100px;
+    /* width: 10vw !important; */
+    /* padding-top: 15% !important; */
 }
 
 h5 {
@@ -64,36 +83,87 @@ h5 {
 .need_to_center::before {
     content: '';
     width: 0;
-    height: 20vh;
+    height: 5vh;
     display: inline-block;
     position: relative;
     vertical-align: middle;
 }
 
 .rule {
-    width: 30vw;
-    height: auto;
-    border: 5px solid #4F586B;
-    border-radius: 20px;
-    padding: 5px;
+    text-align: left !important;
 }
 
 .login_5 {
-    margin: 0 0 5vh 0 !important;
+    margin: 0 0 3vh 0 !important;
+    width: 90% !important;
 }
 
 .login_1 {
     margin: 0 0 1vh 0 !important;
+    width: 90% !important;
+}
+
+.loginBtn {
+    width: 65% !important;
 }
 
 .back {
-    background: url("../imgs/login.png") !important;
+    background: url("../imgs/login.jpg") left !important;
+    background-size: 50vw 100vh!important;
+    float: left;
+    height: 100vh;
+    width: 50vw;
+    background-repeat: repeat !important;
+}
+
+.form {
     height: 100vh;
     width: 100vw;
-    background-size: cover !important;
-    padding-top: 15vh;
+    background-size: 100% !important;
+    background-repeat: no-repeat !important;
+}
+
+.csign {
+    font-size: 10px;
 }
 
 .backC {
-    padding-top: 5%;
+    padding-left: 5%;
+    /* 
+    width: 300px !important;
+    background: #ffffff !important; */
+}
+
+
+/* .ui.button.toggle.active, .ui.buttons .button.toggle.active, .ui.toggle.buttons .active.button{
+    background-color: #2f375b !important;
+} */
+
+.selected {
+    margin: 1% !important;
+    background-color: #2f375b !important;
+    color: #ffffff !important;
+    font-size: 100 !important;
+}
+
+.subBtn {
+    margin: 1% !important;
+}
+
+@media screen and (max-width:1300px) {
+    .formSBg {
+        margin: 20px;
+    }
+}
+
+@media screen and (max-width:768px) {
+    .formSBg {
+        margin: 0;
+    }
+
+    /* .select{
+        width:auto !important;
+        display: inline-flex !important;
+    } */
+    
 }

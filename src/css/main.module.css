@@ -3,17 +3,12 @@
     width: 50%;
 }
 
-.table,
-.slider_item {
+.table{
     padding: 0;
     margin: 25px 0;
     /* height: calc(80vh - 30px); */
 }
 
-.slider_item img {
-    width: auto;
-    height: 65vh;
-}
 
 .table :global(div.list-group-item) {
     border: 0.15px #000 solid !important;
@@ -106,7 +101,19 @@
 
 .sort {
     background: #BAD7D5;
-    width: 100vw;
     margin: 30px -12.5vw;
     padding: 15vh 15vw;
+}
+
+.moduleX {
+    background: #f0f0f0;
+    width: 25px;
+    height: 25px;
+    color: #000
+}
+
+@media screen and (max-width:768px) {
+    .sort {
+        margin: 30px -15px
+    }
 }

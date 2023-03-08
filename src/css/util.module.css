@@ -1,3 +1,7 @@
 .tab {
     margin-left: -1.14285714em;
 }
+
+.point{
+    cursor: pointer !important;
+}

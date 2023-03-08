@@ -2,12 +2,7 @@ import { FetchUtil } from "../util/fetchUtil";
 
 export class ManageR {
     static root = "manage"
-    static politician(data) {
-        return FetchUtil.postAPI(`${this.root}/politician`, data)
-    }
-    static proposal(data) {
-        return FetchUtil.postAPI(`${this.root}/proposal`, data)
-    }
+    
 
     static report(data){
         return FetchUtil.getAPI(`${this.root}/report`, data)
@@ -18,6 +13,9 @@ export class ManageR {
 
     static user(){
         return FetchUtil.getAPI(`${this.root}/user`)
+    }
+    static identity(data){
+        return FetchUtil.postAPI(`${this.root}/identity`,data)
     }
 
 }

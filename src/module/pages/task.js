@@ -1,6 +1,5 @@
 import React from 'react';
 import { Grid } from 'semantic-ui-react'
-import { TaskModal } from "../modal"
 import { Pages } from "../pages.js"
 
 
