@@ -2,13 +2,12 @@ import React from 'react';
 import ReactDOM from "react-dom";
 import { Route, HashRouter } from "react-router-dom";
 import { main } from "./module/router.js";
-import { usePromiseTracker } from "react-promise-tracker";
-import Loader from "react-loader-spinner"
-// Import Swiper styles
-import 'swiper/swiper.scss';
-import 'swiper/components/navigation/navigation.scss';
-import 'swiper/components/pagination/pagination.scss';
-import 'swiper/components/scrollbar/scrollbar.scss';
+import styles from "./index.css"
+ // Import Swiper styles
+// import 'swiper/swiper.scss';
+// import 'swiper/components/navigation/navigation.scss';
+// import 'swiper/components/pagination/pagination.scss';
+// import 'swiper/components/scrollbar/scrollbar.scss';
 //semantic-ui
 import 'semantic-ui-css/semantic.min.css'
 import "tailwindcss/tailwind.css"
@@ -27,20 +26,20 @@ class App extends React.Component {
 	}
 }
 
-const LoadingIndicator = props => {
-	const { promiseInProgress } = usePromiseTracker();
-	return (
-		promiseInProgress &&
-		<div className="show_loading">
-			<Loader type="ThreeDots" color="#000" height="100" width="100" />
-		</div >
-	);
-}
+// const LoadingIndicator = props => {
+// 	const { promiseInProgress } = usePromiseTracker();
+// 	return (
+// 		promiseInProgress &&
+// 		<div className="show_loading">
+// 			<Loader type="ThreeDots" color="#000" height="100" width="100" />
+// 		</div >
+// 	);
+// }
 
 ReactDOM.render(
 	<HashRouter >
 		<App />
-		<LoadingIndicator />
+		{/* <LoadingIndicator /> */}
 	</HashRouter>,
 	document.getElementById("root")
 );

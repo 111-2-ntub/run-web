@@ -3,15 +3,15 @@ import { Pages } from "../pages.js"
 import { Card, Button, Label, Segment, Table } from 'semantic-ui-react'
 // import Chart from 'react-apexcharts'
 import { Line, Bar } from 'react-chartjs-2';
-import SwiperCore, { Navigation, Pagination, Scrollbar, A11y, Mousewheel } from 'swiper';
-import 'swiper/components/navigation/navigation.scss';
-import 'swiper/components/pagination/pagination.scss';
+// import SwiperCore, { Navigation, Pagination, Scrollbar, A11y, Mousewheel } from 'swiper';
+// import 'swiper/components/navigation/navigation.scss';
+// import 'swiper/components/pagination/pagination.scss';
 import style from "../../css/figureDetail.module.css"
 import { PoliticianR } from "../request/politicianR"
 import { trackPromise } from 'react-promise-tracker';
 import { ScoreModal, InfoModal } from "../modal"
 import { Grid } from 'semantic-ui-react'
-import { Swiper, SwiperSlide } from 'swiper/react';
+// import { Swiper, SwiperSlide } from 'swiper/react';
 import { buildStyles, CircularProgressbar } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 import { RadioGroup } from '@headlessui/react'
@@ -542,7 +542,7 @@ class FigureDetail extends React.Component {
         };
 
 
-        SwiperCore.use([Navigation, Pagination, Scrollbar, A11y, Mousewheel,]);
+        // SwiperCore.use([Navigation, Pagination, Scrollbar, A11y, Mousewheel,]);
         // Chart.defaults.font.family="abc"
         return (<Pages id={ 3 }
             pageInfo={ [{ content: '政治人物', link: true, href: "./#/figure" },
@@ -713,7 +713,7 @@ class FigureDetail extends React.Component {
                                         </Card>
                                     </Card.Group>
                                     <Segment basic>  </Segment>
-                                    <Swiper
+                                    {/* <Swiper
                                         className={ style.dashboardcard }
                                         mousewheel={ true }
                                         spaceBetween={ 30 }
@@ -730,7 +730,7 @@ class FigureDetail extends React.Component {
                                         <SwiperSlide>
                                             <Bar data={ this.state.trend_pro } options={ boptions } />
                                         </SwiperSlide>
-                                    </Swiper>
+                                    </Swiper> */}
 
                                     <div class="mt-10">
                                         <div className={style.bigSize + " " + style.center}><span class="text-2xl">政見</span>

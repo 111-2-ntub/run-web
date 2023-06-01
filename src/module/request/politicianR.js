@@ -12,7 +12,7 @@ export  class PoliticianR {
     }
 
     static detail(id) {
-        return FetchUtil.getAPI(`${this.root}/${id}`)
+        return FetchUtil.getAPI(`${this.root}/d/${id}`)
     }
 
     static area() {

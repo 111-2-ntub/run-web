@@ -20,14 +20,14 @@ class Figure extends React.Component {
 
         trackPromise(
             PoliticianR.getList().then(response => {
-                let resData = response.data.D
+                let resData = response.data.data
                 this.setState({ "data": resData, resource: resData })
             })
         )
         trackPromise(
             PoliticianR.cond().then(response => {
-                console.log(response)
-                let resData = response.data.D
+                console.log(response.data)
+                let resData = response.data.data
                 let test = {}
                 for (let i of Object.keys(resData)) {
                     // console.log(i)

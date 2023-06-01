@@ -9,12 +9,12 @@ import style from "../../css/main.module.css"
 import { HomeR } from '../request/homeR.js';
 import { trackPromise } from 'react-promise-tracker';
 
-import 'swiper/components/navigation/navigation.scss';
-import 'swiper/components/pagination/pagination.scss';
+// import 'swiper/components/navigation/navigation.scss';
+// import 'swiper/components/pagination/pagination.scss';
 // import Swiper core and required modules
-import SwiperCore, { Navigation, Pagination, Scrollbar, A11y, Mousewheel } from 'swiper';
+// import SwiperCore, { Navigation, Pagination, Scrollbar, A11y, Mousewheel } from 'swiper';
 
-import { Swiper, SwiperSlide } from 'swiper/react';
+// import { Swiper, SwiperSlide } from 'swiper/react';
 
 
 class Home extends React.Component {
@@ -42,11 +42,11 @@ class Home extends React.Component {
 
 
     render() {
-        SwiperCore.use([Navigation, Pagination, Scrollbar, A11y, Mousewheel,]);
+        // SwiperCore.use([Navigation, Pagination, Scrollbar, A11y, Mousewheel,]);
         return (<Pages id={ 0 } page={
             (<>
                 <div >
-                    <div >
+                    {/* <div >
                         <Swiper
                             spaceBetween={ 50 }
                             slidesPerView={ 1 }
@@ -58,7 +58,7 @@ class Home extends React.Component {
                                 return (<SwiperSlide  ><center><img src={ item } alt="" /></center></SwiperSlide>)
                             }) }
                         </Swiper>
-                    </div>                  
+                    </div>                   */}
                     <div className={ style.sort }>
                         <Header textAlign={ "center" } as={ "h1" }>人物排行榜 </Header>
                         <Segment basic textAlign={ "center" }>

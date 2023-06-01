@@ -27,6 +27,7 @@ export class FetchUtil {
                 headers: {
                     "Content-Type": APPLICATION_JSON,
                     'Access-Control-Allow-Origin': '*',
+                    
                 },
 
             }
