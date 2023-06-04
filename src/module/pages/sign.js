@@ -134,13 +134,14 @@ class Login extends React.Component {
         var account = document.getElementById("account").value
         var password = sha256(document.getElementById("password").value);
         trackPromise(
-            MemberR.login({ "account": account, "password": password }).then(res => {
-                console.log(res)
+            MemberR.login({ "username": account, "password": password }).then(res => {
+                console.log(res.data.success)
                 if (res.data.success) {
-                    let resD = res.data.D
+                    let resD = res.data.data
+                    console.log(resD.identity)
                     localStorage.setItem("login", account)
-                    localStorage.setItem("identity", resD.data[0].identity)
-                    window.history.back()
+                    localStorage.setItem("identity", resD.identity)
+                    window.location.href=window.location.href.replace("/login",'')
                 } else {
                     this.setState({ errorMes: res.message })
                 }

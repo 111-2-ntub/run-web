@@ -37,14 +37,15 @@ class User extends React.Component {
         }
         trackPromise(
             MemberR.user(this.state.userName).then(res => {
-                this.setState(res.data.D)
+                console.log(res.data.data)
+                this.setState(res.data.data)
             })
         )
         if (this.state.identity === "3") {
             this.figureID = 405
             trackPromise(
                 MemberR.p_user(this.figureID).then(res => {
-                    let resData = res.data.D
+                    let resData = res.data
                     console.log(resData)
                     this.setState({ p_data: resData })
                 }), error => { console.log(error) }

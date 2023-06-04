@@ -45,7 +45,7 @@ class FigureDetail extends React.Component {
         trackPromise(
             PoliticianR.detail(this.figureID).then(res => {
               
-                let resData = res.data.D
+                let resData = res.data.data
                 let cond = [{ no: "degree", name: "學歷" }, { no: "tel", name: "電話" }]
                 let selfD = []
                 cond.forEach(placement => {
@@ -746,6 +746,7 @@ class FigureDetail extends React.Component {
                                         </div>
                                         <div class=" grid grid-cols-2   justify-center items-stretch mt-5" >
                                             { this.state.policy && this.state.policy.map((placement, index) => {
+                                                console.log(placement)
                                                 if (index === null) return (<></>)
                                                 else {
                                                     return (<>
@@ -755,9 +756,7 @@ class FigureDetail extends React.Component {
                                                                     <div class="text-lg text-gray-700 font-semibold hover:underline cursor-pointer">  < >{placement.name.map((item, index) => {
                                                                         return (<><Label className={style.class}>{item}</Label></>)
                                                                     })}</ ></div>
-                                                                    {/* <div class="flex mt-2">
-                                                                        <ColorNumber value={ index } neg={ index % 2 === 0 } />
-                                                                    </div> */}
+                                                                   
                                                                     <p class="mt-2 text-md text-gray-600">  { placement.content }</p>
 
                                                                 </div>

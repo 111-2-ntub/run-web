@@ -15,7 +15,7 @@ export default class Check extends React.Component {
         trackPromise(
             ManageR.report().then(res => {
                 console.log(res)
-                let d = res.data.D
+                let d = res.data.data
                 if (d) {
                     this.setState({ already: d.already, notYet: d.not_yet })
                 }
@@ -67,9 +67,9 @@ export default class Check extends React.Component {
                         {
                             this.state.already && this.state.already.map((item, index) => {
                                 return (<>
-                                    <Grid.Row > <Grid.Column width={ 10 } >{ item.content }</Grid.Column>
-                                        <Grid.Column width={ 6 }>
-
+                                    <Grid.Row > <Grid.Column width={ 8 } >{ item.content }</Grid.Column>
+                                        <Grid.Column width={ 5 }>
+                                        {item.user_id}
                                         </Grid.Column></Grid.Row>
                                 </>)
                             })

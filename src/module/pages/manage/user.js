@@ -15,7 +15,7 @@ export default class Check extends React.Component {
     componentDidMount() {
         trackPromise(
             ManageR.user().then(response => {
-                this.setState(response.data.D)
+                this.setState(response.data.data)
             })
         )
     }

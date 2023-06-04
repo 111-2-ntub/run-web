@@ -19,7 +19,7 @@ export class MemberR {
     }
 
     static user(u_id) {
-        return FetchUtil.getAPI(`${this.root}/${u_id}`)
+        return FetchUtil.getAPI(`${this.root}/u/${u_id}`)
     }
 
     static userEdit(data) {

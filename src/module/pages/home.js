@@ -32,8 +32,8 @@ class Home extends React.Component {
     componentDidMount() {
         trackPromise(
             HomeR.home().then(res => {
-                let resData = res.data.D
-                this.setState({ politics: resData.policy, message: resData.mes, proposal: resData.proposal, chart: resData.rank })
+                let resData = res.data.data
+                this.setState({ politics: resData.policy,  chart: resData.rank })
                 
             }, error => console.log(error))
         )
@@ -113,7 +113,7 @@ class Home extends React.Component {
                     </div>
                 </div>
                 <Grid columns={2}>
-                    <Grid.Row stretched className="mt-6">
+                    {/* <Grid.Row stretched className="mt-6">
                         <Grid.Column width={ 16 }><h1 className={ style.hotMsg + "m-3" }   >最熱門留言</h1></Grid.Column>
 
                         <Grid.Column className='justify-center' width={ 6 } mobile={ 16 } tablet={ 6 } computer={ 6 }>
@@ -128,7 +128,7 @@ class Home extends React.Component {
                             <HomeTable data={ this.state.message } person={ person }></HomeTable>                        
                         </Grid.Column>
 
-                    </Grid.Row>
+                    </Grid.Row> */}
                     
                     <Grid.Row stretched className="mt-8">
                         <Grid.Column width={ 16 }> <h1 className={ style.hotPolicy + " m-3" }  >最熱門政見</h1></Grid.Column>
@@ -146,7 +146,7 @@ class Home extends React.Component {
                         </Grid.Column>
                     </Grid.Row>
 
-                    <Grid.Row stretched className="mt-6">
+                    {/* <Grid.Row stretched className="mt-6">
                         <Grid.Column width={ 16 }>  <h1 className={ style.hotProposal + " m-3" } >最熱門提案</h1></Grid.Column>
                         <Grid.Column width={ 6 } mobile={ 16 } tablet={ 6 } computer={ 6 }>
                             { this.state.politics == null ? <></> : <>
@@ -159,7 +159,7 @@ class Home extends React.Component {
                         <Grid.Column width={ 10 } mobile={ 16 } computer={ 10 } tablet={ 10 }>
                             <HomeTable data={ this.state.proposal } ></HomeTable>
                         </Grid.Column>
-                    </Grid.Row>
+                    </Grid.Row> */}
                 </Grid>
 
 
