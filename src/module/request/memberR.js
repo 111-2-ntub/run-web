@@ -37,6 +37,9 @@ export class MemberR {
     static p_user(p_id) {
         return FetchUtil.getAPI(`${this.root}/p_user/${p_id}`)
     }
+    static del_user(u_id){
+        return FetchUtil.deleteAPI(`${this.root}/u/${u_id}`)
+    }
 
 
 

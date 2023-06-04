@@ -12,6 +12,8 @@ import { trackPromise } from 'react-promise-tracker';
 import pic from "./pic.png"
 import { sha256 } from 'js-sha256';
 import { ModalBase, MsgModal } from '../modal.js';
+import { InfoModal } from "../modal"
+
 
 class User extends React.Component {
     constructor(props) {
@@ -85,6 +87,8 @@ class MyProfile extends React.Component {
         super(props)
         this.state = {
             areaShow: false, pswShow: false, classShow: false,
+            noteModalC:"",
+            open:false,
             like: {}
         }
 
@@ -110,6 +114,15 @@ class MyProfile extends React.Component {
         let name = document.getElementById("new_name").value
         return MemberR.userEdit({ "name": name, "account": this.props.userName }).then(res => { if (res.data.success) document.location.reload() })
 
+    }
+    del_user=()=>{
+        return MemberR.del_user(this.props.userName).then(res=>{
+            if(res.message=="刪除成功"){
+                localStorage.removeItem("login")
+                localStorage.removeItem("identity")
+                this.showNoteModal("刪除成功")
+            }
+        })
     }
     editArea = () => {
 
@@ -150,6 +163,11 @@ class MyProfile extends React.Component {
         });
     }
 
+    showNoteModal = (m) => {
+        this.setState({ open: !this.state.open, noteModalC: m })
+        if (!m)  window.location.href=window.location.href.replace("/user",'')
+
+    }
 
     render() {
         return (<>
@@ -176,7 +194,8 @@ class MyProfile extends React.Component {
                             } /></div>
                     </Grid.Column>
                     <Grid.Column width={ 8 } textAlign={ "left" } className={ style.data }>
-                        <div class="hidden sm:flex justify-start"><ModalBase btn={ <Button className={ style.btncolor } labelPosition='right' color={ "teal" } size={ "medium" } content={ "修改密碼" } icon={ "edit" } /> }
+                    <Button className={ style.btncolor } labelPosition='right' color={ "teal" } size={ "medium" } content={ "刪除帳號" } icon={ "edit" } onClick={this.del_user} />
+                        {/* <div class="hidden sm:flex justify-start"><ModalBase btn={ <Button className={ style.btncolor } labelPosition='right' color={ "teal" } size={ "medium" } content={ "修改密碼" } icon={ "edit" } /> }
                             labelPosition={ 'left' } color={ "teal" } message={ "修改密碼" } btnText={ "修改密碼" } toDo={ this.editPsw }
                             content={ (<>
                                 <p><Input type="password" placeholder="現有密碼" id="old_psw" /></p>
@@ -191,7 +210,7 @@ class MyProfile extends React.Component {
                                 <p><Input type="password" placeholder="新密碼" id="psw" /></p>
                                 <p><Input type="password" placeholder="確認新密碼" id="c_psw" /></p>
                             </>) }
-                        /></div>
+                        /></div> */}
                     </Grid.Column>
 
                 </Grid.Row>
@@ -259,6 +278,7 @@ class MyProfile extends React.Component {
                 </Card>
             </Card.Group>
 
+            <InfoModal open={ this.state.open } content={ this.state.noteModalC } close={ this.showNoteModal } />
 
 
         </>);

@@ -3,6 +3,9 @@ import ReactDOM from "react-dom";
 import { Route, HashRouter } from "react-router-dom";
 import { main } from "./module/router.js";
 import styles from "./index.css"
+import { usePromiseTracker } from "react-promise-tracker";
+import Loader from "react-loader-spinner"
+
  // Import Swiper styles
 // import 'swiper/swiper.scss';
 // import 'swiper/components/navigation/navigation.scss';
@@ -26,15 +29,15 @@ class App extends React.Component {
 	}
 }
 
-// const LoadingIndicator = props => {
-// 	const { promiseInProgress } = usePromiseTracker();
-// 	return (
-// 		promiseInProgress &&
-// 		<div className="show_loading">
-// 			<Loader type="ThreeDots" color="#000" height="100" width="100" />
-// 		</div >
-// 	);
-// }
+const LoadingIndicator = props => {
+	const { promiseInProgress } = usePromiseTracker();
+	return (
+		promiseInProgress &&
+		<div className="show_loading">
+			<Loader type="ThreeDots" color="#000" height="100" width="100" />
+		</div >
+	);
+}
 
 ReactDOM.render(
 	<HashRouter >
